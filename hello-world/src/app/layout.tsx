@@ -2,9 +2,10 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+// import "./globals.css";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { ErrorWrapper } from "./error-wrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,8 @@ export default function RootLayout({
             {pathname.split("/").filter(Boolean).length > 0 ? "Home" : ""}
           </Link>
         </header>
-        <main className="h-[90vh] flex-1 p-4 overflow-auto">{children}</main>
+        <ErrorWrapper>{children}</ErrorWrapper>
+        {/* <main className="h-[90vh] flex-1 p-4 overflow-auto"><ErrorWrapper>{children}</ErrorWrapper></main> */}
         <footer className="bg-gray-200 h-12 flex items-center px-4 font-semibold text-black h-[5vh]">
           Copyright © 2025
         </footer>
