@@ -1,3 +1,8 @@
+"use client";
+import React from "react";
+
+import { useSearchParams } from "next/navigation";
+
 export default function ComplexDashboardLayout({
   children,
   users,
@@ -11,9 +16,11 @@ export default function ComplexDashboardLayout({
   notifications: React.ReactNode;
   login: React.ReactNode;
 }>) {
-  const isLoggedIn = false;
+  const routeParams = useSearchParams();
+  const loginSuccesss = routeParams.get("logInSuccess");
+  const loggedIn = loginSuccesss === "true";
 
-  return isLoggedIn ? (
+  return loggedIn ? (
     <div>
       <div>{children}</div>
       <div style={{ display: "flex" }}>

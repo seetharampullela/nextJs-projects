@@ -23,7 +23,7 @@ export default function AuthLayout({
           type="text"
           value={input}
           style={{
-            border: "1px solid white",
+            border: "1px solid black",
             margin: "1rem",
             padding: "0.5rem",
           }}
@@ -36,7 +36,6 @@ export default function AuthLayout({
           <ul>
             {routeMap.map((route) => {
               const isActive = route.path === pathname;
-              console.log("route", isActive);
               return (
                 <li key={route.path}>
                   <Link
